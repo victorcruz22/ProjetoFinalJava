@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Produto</title>
+  <style>
+    body {
+      background-image: url("https://cdn.awsli.com.br/2500x2500/77/77632/produto/195685644/t109-tecido-tricoline-xita-camuflado-fundo-verde-t109---viivatex-4ff352c11a.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    } nav {box-shadow: 0 15px 4px rgba(0, 0, 0, 0.5);}
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+  <header></header>
+  <div class="content-wrapper">
+    <h1 style="color: white; margin: 15px 0px 15px 10px;text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); "><strong>Produtos</strong></h1>
+    <style>
+  body{text-align: center;}
+  </style>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/"><strong>Inicio</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/produto"><strong>Produtos</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/formularioDeCadastro"><strong>Cadastrar Produto</strong></a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="card" th:each="produto : ${produtos}" style="background-color: transparent;margin: 15px 0px; height: 60%;box-shadow:  0 0 15px rgba(255, 255, 255, 1);">
+        <div class="card-header" th:text="${produto.nomeProduto}" style="background-color: #212529;margin: 15px 15px 15px 10px; font-family: arial; color: white; text-shadow:  4px 4px 8px rgba(0, 0, 0, 0.5);box-shadow:  0 0 15px rgba(255, 255, 255, 1);"><strong>Produtos</strong></div>
+        <div class="card-body" style="background-color: #212529;color:white;">
+          <div class="row">
+            <div class="col-12 col-md-8 mb-5">
+              <div style="font-size: 18px">
+
+                Preço:<span th:text="${produto.preco}"></span>
+              </div>
+              <div style="font-size: 18px">
+                Quantidade:<span th:text="${produto.quantidade}"></span>
+              </div>
+              <div>
+                <h4 style="font-size: 20px;">Descrição</h4>
+                <textarea rows="5" cols="40" th:text="${produto.descricao}"></textarea>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <img th:src="${produto.urlImagem}" class="img-thumbnail" src=""/>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <div class="col mb-3 my-3">
+              <a th:href="@{/editar/{id}(id=${produto.id})}" href="#" class="btn btn-primary">Editar</a>
+              <button data-bs-toggle="modal" class="btn btn-danger" th:attr="data-bs-target='#modalExcluir' + ${produto.id}">Deletar</button>
+            </div>
+          </div>
+        </div>
+        <!-- Confirmação exclusão produto -->
+        <div class="modal" tabindex="-1" th:attr="id='modalExcluir'+${produto.id}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Excluir produto?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Deseja realmente excluir o produto: <strong><span th:text="${produto.nomeProduto}"></span></strong>?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a th:href="@{/delete/{id}(id=${produto.id})}" href="#" type="button" class="btn btn-warning">Confirmar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

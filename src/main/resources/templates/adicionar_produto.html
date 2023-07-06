@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Produtos</title>
+  <style>
+    body {
+      background-image: url("https://cdn.awsli.com.br/2500x2500/77/77632/produto/195685644/t109-tecido-tricoline-xita-camuflado-fundo-verde-t109---viivatex-4ff352c11a.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #ADD8E6;
+    } nav {box-shadow: 0 15px 4px rgba(0, 0, 0, 0.5);} form {background-color: white; font-family: verdana; color: white} form {background-color: #212529;box-shadow:  0 0 15px rgba(255, 255, 255, 1); border-radius: 	25px;}
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1 style="margin: 15px 0px 15px 10px; color: white; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5) ;"><strong>Cadastrar Produto</strong></h1>
+  <style>
+  body{text-align: center}
+  </style>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/"><strong>Inicio</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/produto"><strong>Produtos</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/formularioDeCadastro"><strong>Cadastrar Produto</strong></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <form action="#" th:action="@{adicionarProduto}" th:object="${produto}" method="POST" style="margin: 30px auto; width: 300px; padding: 10px 20px;">
+      <div class="mb-3">
+      	 <label for="nomeProduto" class="form-label"><strong>Produto</strong></label>
+        <input type="text" class="form-control" id="nomeProduto" th:field="*{nomeProduto}" placeholder="EX: caneta">
+        <span th:if="${#fields.hasErrors('nomeProduto')}" th:errors="*{nomeProduto}"></span>
+      </div>
+      <div class="mb-3">
+        <label for="preco" class="form-label"><strong>Preço</strong></label>
+        <input type="number" step="0.01" class="form-control" id="preco" th:field="*{preco}" placeholder="EX: 1,99">
+        <span th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></span>
+      </div>
+      <div class="mb-3">
+        <label for="quantidade" class="form-label"><strong>Quantidade</strong></label>
+        <input type="number" class="form-control" id="quantidade" th:field="*{quantidade}" placeholder="EX: 10">
+        <span th:if="${#fields.hasErrors('quantidade')}" th:errors="*{quantidade}"></span>
+      </div>
+      <div class="mb-3">
+        <label for="descricao" class="form-label"><strong>Descrição</strong></label>
+        <input type="text" class="form-control" id="descricao" th:field="*{descricao}" placeholder="me da pelo menos 7">
+        <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+      </div>
+      <div class="mb-3">
+        <label for="urlImagem" class="form-label"><strong>Url da Imagem</strong></label>
+        <input type="text" class="form-control" id="urlImagem" th:field="*{urlImagem}">
+        <span th:if="${#fields.hasErrors('urlImagem')}" th:errors="*{urlImagem}"></span>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>

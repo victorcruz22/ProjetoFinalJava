@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-image: url("https://cdn.awsli.com.br/2500x2500/77/77632/produto/195685644/t109-tecido-tricoline-xita-camuflado-fundo-verde-t109---viivatex-4ff352c11a.jpg");
+      background-repeat: no-repeat;
+      color: #fff;
+    }
+
+    .title-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #212529;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #4caf50;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      margin: 20px;
+      margin-top: 8px
+    }
+
+    .btn-primary {
+      background-color: #4caf50;
+    }
+
+    .btn-primary:hover {
+      background-color: #45a049;
+    }
+
+    .btn-secondary {
+      background-color: #007bff;
+    }
+
+    .btn-secondary:hover {
+      background-color: #0069d9;
+    }
+
+    .rounded-image {
+      border: 2px solid black;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="title-container">
+    <h1 style="color: white;text-shadow: 4px 4px 8px rgba(100, 100, 100, 1);"><strong>Invictus</strong></h1>
+  </div>
+
+  <a href="/formularioDeCadastro" class="btn btn-primary">Cadastrar Produtos</a>
+  <a href="/produto" class="btn btn-secondary">Produtos</a>
+
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel" style="display: grid; grid-auto-flow: line ;scroll-behavior: auto; justify-content: center;">
+      <div class="carousel-item active">
+        <a href="/formularioDeCadastro">
+          <img width="1000" height="600" src="https://www.eb.mil.br/image/journal/article?img_id=15968148&t=1660310539835" alt="...">
+        </a>
+      </div>
+      <div class="carousel" style="display: grid; grid-auto-flow: line; scroll-behavior: auto; justify-content: center;">
+        <a href="/link-para-segunda-imagem">
+          <img width="1000" height="600" src="https://i.ytimg.com/vi/fDm_LWyV7x4/maxresdefault.jpg" alt="...">
+        </a>
+      </div>
+      <div class="carousel" style="display: grid; grid-auto-flow: line;scroll-behavior: auto; justify-content: center;">
+        <a href="/link-para-terceira-imagem">
+          <img width="1000" height="600" src="https://www.eb.mil.br/image/journal/article?img_id=16041014&t=1661458365685" alt="...">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
